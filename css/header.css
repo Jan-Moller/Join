@@ -1,0 +1,42 @@
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 96px;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    position: absolute;
+    z-index: 998;
+
+}
+
+.header_title {
+    padding-left: 348px;
+    font-size: 24px;
+}
+
+.header_icons{
+    padding-right: 40px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.initial_box {
+    height: 56px;
+    width: 56px;
+    border: 3px solid black;
+    border-radius: 100%;
+}
+
+.user_initials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 20px;
+    color:#29ABE2;
+    font-weight: 800;
+    
+}
