@@ -10,23 +10,26 @@
 </head>
 
 <body>
-    <img class="join-logo-sign-up" src="assets/img/join-logo-dark.png" alt="Logo von Join">
-    <div class="sign-up-formular-container">
-        <div class="sign-up-headline-container">
+    <img class="join_logo_sign_up" src="assets/img/join-logo-dark.png" alt="Logo von Join">
+    <div class="sign_up_formular_container">
+        <a href="login.html"><img class="sign_up_back_btn" src="assets/img/back-btn.png" alt="back-button"></a>
+        <div class="sign_up_headline_container">
             <h1>Sign Up</h1>
         </div>
-        <form>
-            <input required type="text" placeholder="Name" id="name">
-            <input required type="Email" placeholder="Email" id="mail">
-            <input required type="number" min="10" placeholder="Password" id="number">
-            <input required type="number" min="10" placeholder="Confirm Password" id="number">
-            <div>
-                <input type="checkbox">
-                <div>I accept the <a href="privacy.html">Privacy Policy</a></div>
+        <form  onsubmit="addUser(); return false;">
+            <input class="sign_up_input" required type="text" placeholder="Name" id="name">
+            <input class="sign_up_input" required type="Email" placeholder="Email" id="mail">
+            <input class="sign_up_input" required type="password" placeholder="Password" id="password">
+            <input class="sign_up_input" required type="password" placeholder="Confirm Password" id="password_confirm">
+            <div class="sign_up_privacy_container">
+                <input type="checkbox" id="customCheckbox" />
+                <label for="customCheckbox">I accept the <a href="privacy.html">Privacy Policy</a></label>
             </div>
             <button>Sign up</button>
         </form>
     </div>
+
+    <script src="js/storage.js"></script>
 </body>
 
 </html>
