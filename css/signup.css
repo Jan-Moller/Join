@@ -3,9 +3,11 @@ body {
     background-color: #F6F7F8;
     margin: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     height: 100vh;
+    overflow: hidden;
 }
 
 h1 {
@@ -18,11 +20,11 @@ h1 {
     margin-top: 48px;
 }
 
-.d_none{
+.d_none {
     display: none;
 }
 
-.join_logo_sign_up {
+.join_logo {
     position: absolute;
     top: 80px;
     left: 77px
@@ -68,7 +70,7 @@ form {
     border: 1px solid #D1D1D1;
     margin-bottom: 24px;
     padding-left: 30px;
-    font-family: 'Inter'; 
+    font-family: 'Inter';
     font-size: 21px;
     font-weight: 400;
     color: #D1D1D1;
@@ -84,25 +86,25 @@ form {
     color: #D1D1D1;
 }
 
-#name {
+#sign_up_name {
     background-image: url('/assets/img/person.png');
     background-position: calc(100% - 16px) center;
     background-repeat: no-repeat;
 }
 
-#mail {
+#sign_up_mail {
     background-image: url('/assets/img/mail.png');
     background-position: calc(100% - 16px) center;
     background-repeat: no-repeat;
 }
 
-#password {
+#sign_up_password {
     background-image: url('/assets/img/lock.png');
     background-position: calc(100% - 16px) center;
     background-repeat: no-repeat;
 }
 
-#password_confirm {
+#sign_up_password_confirm {
     background-image: url('/assets/img/lock.png');
     background-position: calc(100% - 16px) center;
     background-repeat: no-repeat;
@@ -167,7 +169,7 @@ form button {
     font-family: 'Inter';
     font-weight: 700;
     color: white;
-    margin-bottom: 48px; 
+    margin-bottom: 48px;
 }
 
 .sign_up_back_btn {
@@ -191,4 +193,38 @@ button {
 #error_message {
     color: red;
     text-align: center;
+}
+
+.succesfull_sign_up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2A3647;
+    color: white;
+    height: 74px;
+    width: 312px;
+    border-radius: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+    box-shadow: 0px 0px 4px 0px #00000026;
+    position: absolute;
+    transform: translateY(2000px);
+}
+
+.show_succesfull_sign_up {
+    transform: translateY(0);
+    transition: all 1000ms ease-in-out;
+}
+
+footer {
+    margin-top: 122px;
+    margin-bottom: 20px;
+}
+
+.footer_items {
+    text-decoration: none;
+    color: #A8A8A8;
+    font-size: 16px;
+    padding: 8px;
+    margin: 8px; 
 }

@@ -10,17 +10,18 @@
 </head>
 
 <body onload="loadUser()">
-    <img class="join_logo_sign_up" src="assets/img/join-logo-dark.png" alt="Logo von Join">
+    <img class="join_logo" src="assets/img/join-logo-dark.png" alt="Logo von Join">
     <div class="sign_up_formular_container">
-        <a href="login.html"><img class="sign_up_back_btn" src="assets/img/back-btn.png" alt="back-button"></a>
+        <a href="index.html"><img class="sign_up_back_btn" src="assets/img/back-btn.png" alt="back-button"></a>
         <div class="sign_up_headline_container">
             <h1>Sign Up</h1>
         </div>
-        <form  onsubmit="addUser(); return false;">
+        <form onsubmit="addUser(); return false;">
             <input class="sign_up_input" required type="text" placeholder="Name" id="sign_up_name">
             <input class="sign_up_input" required type="Email" placeholder="Email" id="sign_up_mail">
             <input class="sign_up_input" required type="password" placeholder="Password" id="sign_up_password">
-            <input class="sign_up_input" required type="password" placeholder="Confirm Password" id="sign_up_password_confirm">
+            <input class="sign_up_input" required type="password" placeholder="Confirm Password"
+                id="sign_up_password_confirm">
             <div id="error_message"></div>
             <div class="sign_up_privacy_container">
                 <input type="checkbox" id="custom_checkbox">
@@ -29,7 +30,13 @@
             <button onclick="checkEmptyInput()">Sign up</button>
         </form>
     </div>
-
+    <footer>
+        <a class="footer_items" href="privacy.html">Privacy Policy</a>
+        <a class="footer_items" href="legal.html">Legal Notice</a>
+    </footer>
+    <div id="succesfull_sign_up_container" class="succesfull_sign_up">
+        <div>Du hast dich erfolgreich registriert.</div>
+    </div>
     <script src="js/storage.js"></script>
     <script src="js/signup.js"></script>
 </body>

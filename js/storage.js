@@ -21,8 +21,13 @@ async function addUser() {
         let mail = document.getElementById('sign_up_mail').value;
         let password = document.getElementById('sign_up_password').value;
         await postUser("/users", { "name": name, "mail": mail, "sign_up_password": password });
-        console.log('User hinzugefügt')
+        document.getElementById('succesfull_sign_up_container').classList.add('show_succesfull_sign_up');
+        setTimeout(function () {
+            window.location.href = 'login.html';
+        }, 2000);
     }
+
+
 }
 
 async function postUser(path = "", data = {}) {

@@ -30,7 +30,7 @@ function checkEmptyPassword() {
 function checkEmptyPasswordConfirm() {
     let password_confirm = document.getElementById('sign_up_password_confirm');
     if (password_confirm.value === '') {
-        password_confirm.classList.add('error_msg_outline'); 
+        password_confirm.classList.add('error_msg_outline');
     }
 }
 
@@ -43,9 +43,10 @@ function checkPrivacyPolicy() {
     return true;
 }
 
-function checkPasswordSimilarity(){
+function checkPasswordSimilarity() {
     let password = document.getElementById('sign_up_password').value;
     let password_confirm = document.getElementById('sign_up_password_confirm').value;
+
 
     if (password !== password_confirm) {
         console.log('Passwort stimmt nicht überein');
@@ -65,6 +66,6 @@ function checkExistingUser() {
         document.getElementById('error_message').innerText = 'Diese E-Mail-Adresse ist bereits registriert.';
         return true;
     } else {
-        return false; 
+        return false;
     }
 }

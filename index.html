@@ -4,19 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Your Group</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/index.css">
+    <title>JOIN</title>
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body onload="includeHTML()">
-    <header w3-include-html="templates/header.html"></header>
-    <nav w3-include-html="templates/navigation.html"></nav>
-
-
-    <script src="js/template.js"></script>
-</body>
+<body onload="loadUser()">
+    <header>
+        <div class="sign_up_question">Not a Join user?</div>
+        <button class="sign_up_btn" onclick="forwardToSignUpHTML()">Sign up</button>
+    </header>
+    <img class="join_logo" src="assets/img/join-logo-dark.png" alt="Logo von Join">
+    <div class="login_formular_container">
+        <div class="login_headline_container">
+            <h1>Log in</h1>
+        </div>
+        <form>
+            <input class="login_input" required type="Email" placeholder="Email" id="login_mail">
+            <input class="login_input" required type="password" placeholder="Password" id="login_password">
+            <div id="error_message"></div>
+            <div class="login_remember">
+                <input type="checkbox" id="custom_checkbox">
+                <label for="custom_checkbox">Remember me</label>
+            </div>
+            <div class="access_btn_container">
+                <button class="login_btn">Log in</button>
+                <button class="guest_login_btn">Guest Log in</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <a class="footer_items" href="privacy.html">Privacy Policy</a>
+        <a class="footer_items" href="legal.html">Legal Notice</a>
+    </footer>
+    <script src="js/storage.js"></script>
+    <script src="js/index.js"></script>
 
 </html>
