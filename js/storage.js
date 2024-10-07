@@ -3,6 +3,7 @@ const BASE_URL = 'https://join-your-organisation-default-rtdb.europe-west1.fireb
 let users = [];
 
 async function addUser() {
+    document.getElementById('error_message').innerText = '';
 
     if (!checkPrivacyPolicy()) {
         console.log('Fehler: Datenschutzerklärung nicht akzeptiert.');

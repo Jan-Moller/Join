@@ -30,13 +30,14 @@ function checkEmptyPassword() {
 function checkEmptyPasswordConfirm() {
     let password_confirm = document.getElementById('sign_up_password_confirm');
     if (password_confirm.value === '') {
-        password_confirm.classList.add('error_msg_outline')
+        password_confirm.classList.add('error_msg_outline'); 
     }
 }
 
 function checkPrivacyPolicy() {
     let checkbox = document.getElementById('custom_checkbox')
     if (!checkbox.checked) {
+        document.getElementById('error_message').innerText = 'Bitte akzeptieren Sie die Datenschutzbestimmungen.';
         return false
     }
     return true;
@@ -45,11 +46,10 @@ function checkPrivacyPolicy() {
 function checkPasswordSimilarity(){
     let password = document.getElementById('sign_up_password').value;
     let password_confirm = document.getElementById('sign_up_password_confirm').value;
-    let password_confirm_container = document.getElementById('password_confirmation_msg');
 
     if (password !== password_confirm) {
         console.log('Passwort stimmt nicht überein');
-        password_confirm_container.classList.remove('d_none')
+        document.getElementById('error_message').innerText = 'Die eingegebenen Passwörter stimmen nicht überein. Bitte überprüfe deine Eingaben und versuche es erneut.';
         return false;
     }
     else { return true; }
