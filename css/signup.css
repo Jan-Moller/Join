@@ -18,6 +18,10 @@ h1 {
     margin-top: 48px;
 }
 
+.d_none{
+    display: none;
+}
+
 .join_logo_sign_up {
     position: absolute;
     top: 80px;
@@ -174,4 +178,17 @@ form button {
 
 button {
     cursor: pointer;
+}
+
+.error_msg_outline {
+    outline: 1px solid red;
+}
+
+.error_msg_outline:focus {
+    outline: 1px solid red;
+}
+
+#password_confirmation_msg{
+    color: red;
+    text-align: center;
 }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/signup.css">
 </head>
 
-<body>
+<body onload="loadUser()">
     <img class="join_logo_sign_up" src="assets/img/join-logo-dark.png" alt="Logo von Join">
     <div class="sign_up_formular_container">
         <a href="login.html"><img class="sign_up_back_btn" src="assets/img/back-btn.png" alt="back-button"></a>
@@ -17,19 +17,22 @@
             <h1>Sign Up</h1>
         </div>
         <form  onsubmit="addUser(); return false;">
-            <input class="sign_up_input" required type="text" placeholder="Name" id="name">
-            <input class="sign_up_input" required type="Email" placeholder="Email" id="mail">
-            <input class="sign_up_input" required type="password" placeholder="Password" id="password">
-            <input class="sign_up_input" required type="password" placeholder="Confirm Password" id="password_confirm">
+            <input class="sign_up_input" required type="text" placeholder="Name" id="sign_up_name">
+            <input class="sign_up_input" required type="Email" placeholder="Email" id="sign_up_mail">
+            <input class="sign_up_input" required type="password" placeholder="Password" id="sign_up_password">
+            <input class="sign_up_input" required type="password" placeholder="Confirm Password" id="sign_up_password_confirm">
+            <div id="password_confirmation_msg" class="d_none">Die eingegebenen Passwörter stimmen nicht überein. <br> Bitte überprüfe deine Eingaben und versuche es erneut.</div>
+            <div id="error_message"></div>
             <div class="sign_up_privacy_container">
-                <input type="checkbox" id="customCheckbox" />
-                <label for="customCheckbox">I accept the <a href="privacy.html">Privacy Policy</a></label>
+                <input type="checkbox" id="custom_checkbox">
+                <label for="custom_checkbox">I accept the <a href="privacy.html">Privacy Policy</a></label>
             </div>
-            <button>Sign up</button>
+            <button onclick="checkEmptyInput()">Sign up</button>
         </form>
     </div>
 
     <script src="js/storage.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 
 </html>
