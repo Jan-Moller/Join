@@ -19,16 +19,17 @@
         <div class="login_headline_container">
             <h1>Log in</h1>
         </div>
-        <form>
-            <input class="login_input" required type="Email" placeholder="Email" id="login_mail">
+        <form onsubmit="login(); return false">
+            <input class="login_input" required type="email" placeholder="Email" id="login_mail">
             <input class="login_input" required type="password" placeholder="Password" id="login_password">
-            <div id="error_message"></div>
+            <div id="error_msg_wrong_login"></div>
             <div class="login_remember">
                 <input type="checkbox" id="custom_checkbox">
                 <label for="custom_checkbox">Remember me</label>
             </div>
             <div class="access_btn_container">
-                <button class="login_btn">Log in</button>
+                <button onclick="checkEmptyInput()" class="login_btn">Log in</button>
+                <button class="placeholder_guest_btn"></button>
                 <button class="guest_login_btn">Guest Log in</button>
             </div>
         </form>

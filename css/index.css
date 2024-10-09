@@ -175,6 +175,8 @@ form {
 }
 
 .guest_login_btn {
+    right: 0px;
+    position: absolute;
     width: 177px;
     height: 55px;
     border-radius: 8px;
@@ -188,6 +190,12 @@ form {
     margin-left: 35px; 
 }
 
+.access_btn_container{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .error_msg_outline {
     outline: 1px solid red;
 }
@@ -196,7 +204,7 @@ form {
     outline: 1px solid red;
 }
 
-#error_message {
+#error_msg_wrong_login {
     color: red;
     text-align: center;
 }
@@ -216,4 +224,19 @@ footer {
 
 button {
     cursor: pointer;
+}
+
+.placeholder_guest_btn{
+    width: 177px;
+    height: 55px;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 21px;
+    font-family: 'Inter';
+    font-weight: 700;
+    color: #2A3647;
+    margin-bottom: 48px;
+    border: 1px solid #2A3647;
+    margin-left: 35px; 
+    visibility: unset;
 }

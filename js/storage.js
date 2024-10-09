@@ -54,6 +54,7 @@ async function loadUser(path = "/users") {
                 id: UserKeysArray[i],
                 mail: responseToJson[UserKeysArray[i]].mail,
                 name: responseToJson[UserKeysArray[i]].name,
+                password: responseToJson[UserKeysArray[i]].sign_up_password,
             }
         )
     }

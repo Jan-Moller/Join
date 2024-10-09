@@ -17,7 +17,6 @@ function checkEmptyMail() {
     if (mail.value === '') {
         mail.classList.add('error_msg_outline')
     }
-
 }
 
 function checkEmptyPassword() {
