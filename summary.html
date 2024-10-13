@@ -15,6 +15,76 @@
     <header w3-include-html="templates/header.html"></header>
     <nav w3-include-html="templates/navigation.html"></nav>
 
+    <div class="main_content">
+        <section class="headline_container">
+            <h1>Join 360</h1>
+            <img src="assets/img/blue-border.png" alt="Bild einer blauen Trennlinie">
+            <div class="summary_subtitle">Key Metrics at a Glance</div>
+        </section>
+        <div class="flex_row">
+            <section class="summary_item_container">
+                <div class="summary_container_row">
+                    <div class="summary_item">
+                        <div><img src="assets/img/summay_todo_icon.png" alt="Bild eines Stiftes"></div>
+                        <div class="summary_category_container">
+                            <div class="category_item_amount" id="todo_amount">1</div>
+                            <div class="category_item_subtitle">To-do</div>
+                        </div>
+                    </div>
+                    <div class="summary_item">
+                        <div class="summary_item">
+                            <div><img src="assets/img/done_img.png" alt="Bild eines Hackens"></div>
+                            <div class="summary_category_container">
+                                <div class="category_item_amount" id="completed_amount">1</div>
+                                <div class="category_item_subtitle">Done</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary_container_row">
+                    <div class="summary_row">
+                        <div class="summary_item_large">
+                            <div><img src="assets/img/urgent.png" alt="Bild urgent Symbols"></div>
+                            <div class="summary_category_container">
+                                <div class="category_item_amount" id="todo_amount">1</div>
+                                <div class="category_item_subtitle">Urgent</div>
+                            </div>
+                        </div>
+                        <img src="assets/img/grey_border.png" alt="Bild eines grauen Balkens">
+                        <div class="deadline_container">
+                            <div id="deadline_date">October 16, 2022</div>
+                            <div class="deadline_subtitle">Upcoming Deadline</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary_container_row">
+                    <div class="summary_item_small">
+                        <div class="summary_category_container">
+                            <div class="category_item_amount" id="todo_amount">1</div>
+                            <div class="category_item_subtitle">Tasks in<br> Board</div>
+                        </div>
+                    </div>
+                    <div class="summary_item_small">
+                        <div class="summary_category_container">
+                            <div class="category_item_amount" id="completed_amount">1</div>
+                            <div class="category_item_subtitle">Tasks in<br> Progress</div>
+                        </div>
+                    </div>
+                    <div class="summary_item_small">
+                        <div class="summary_category_container">
+                            <div class="category_item_amount" id="completed_amount">1</div>
+                            <div class="category_item_subtitle">Awaiting Feedback</div>
+                        </div>
+                    </div>
+            </section>
+            <section class="greeting_container">
+                <div class="greeting_headline">Good morning,</div>
+                <div id="user_name">Jan Möller</div>
+            </section>
+        </div>
+    </div>
+
+
 
     <script src="js/template.js"></script>
     <script src="js/storage.js"></script>
