@@ -65,6 +65,28 @@ h1 {
     box-shadow: 0px 0px 4px 0px #0000001A;
 }
 
+.summary_item:hover{
+    background-color: #2A3647;
+    color: white;
+    width: 274px;
+    height: 178px;
+}
+
+.summary_item:hover img{
+    filter: invert(1) brightness(1.5);
+}
+
+.summary_row:hover {
+    background-color: #2A3647;
+    color: white;
+    width: 580px;
+    height: 178px;
+}
+
+.summary_row:hover .summary_item_large{
+    background-color: #2A3647;
+}
+
 .summary_item_small {
     border-radius: 30px;
     width: 168px;
@@ -75,6 +97,13 @@ h1 {
     justify-content: center;
     gap: 18px;
     box-shadow: 0px 0px 4px 0px #0000001A;
+}
+
+.summary_item_small:hover {
+    background-color: #2A3647;
+    color: white;
+    width: 184px;
+    height: 178px;
 }
 
 .summary_category_container {

@@ -12,6 +12,11 @@ function login() {
     let password = document.getElementById('login_password');
     let user = users.find(u => u.mail == email.value && u.password == password.value)
     if (user) {
+        sessionStorage.setItem('current_user', JSON.stringify({
+            id: user.id,
+            name: user.name,
+            mail: user.mail,
+        }));
         window.location.href = 'summary.html';
     }
     else {

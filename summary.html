@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), summaryInit()">
     <header w3-include-html="templates/header.html"></header>
     <nav w3-include-html="templates/navigation.html"></nav>
 
@@ -73,13 +73,13 @@
                     <div class="summary_item_small">
                         <div class="summary_category_container">
                             <div class="category_item_amount" id="completed_amount">1</div>
-                            <div class="category_item_subtitle">Awaiting Feedback</div>
+                            <div class="category_item_subtitle">Awaiting <br> Feedback</div>
                         </div>
                     </div>
             </section>
             <section class="greeting_container">
                 <div class="greeting_headline">Good morning,</div>
-                <div id="user_name">Jan Möller</div>
+                <div id="user_name"></div>
             </section>
         </div>
     </div>
@@ -89,6 +89,7 @@
     <script src="js/template.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/summary.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
