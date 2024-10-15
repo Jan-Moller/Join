@@ -21,7 +21,13 @@ async function addUser() {
         let name = document.getElementById('sign_up_name').value;
         let mail = document.getElementById('sign_up_mail').value;
         let password = document.getElementById('sign_up_password').value;
-        await postUser("/users", { "name": name, "mail": mail, "sign_up_password": password });
+        let tasks = {
+            todo: [{ task: "", priority: "", }],
+            in_progress: [{ task: "", priority: "", }],
+            await_feedback: [{ task: "", priority: "", }],
+            done: [{ task: "", priority: "", }],
+        };
+        await postUser("/users", { "name": name, "mail": mail, "sign_up_password": password, "tasks": tasks });
         await loadUser();
         let user = users.find(u => u.mail == mail && u.password == password)
         sessionStorage.setItem('current_user', JSON.stringify({
@@ -67,18 +73,33 @@ async function loadUser(path = "/users") {
     }
 }
 
+function removePlaceholders(tasks) {
+    if (!tasks || typeof tasks !== 'object') {
+        return {
+            todo: [],
+            in_progress: [],
+            await_feedback: [],
+            done: []
+        };
+    }
+    Object.keys(tasks).forEach(key => {
+        tasks[key] = tasks[key] ? tasks[key].filter(task => task.task !== "" && task.priority !== "") : [];
+    });
+    return tasks;
+}
+
 async function loadCurrentUserData(id) {
     let path = `/users/${id}`;
     let response = await fetch(BASE_URL + path + '.json');
     let responseToJson = await response.json();
 
     current_user_data = []
-
     current_user_data = {
         id: id,
         mail: responseToJson.mail,
         name: responseToJson.name,
         password: responseToJson.sign_up_password,
-    }
+        tasks: removePlaceholders(responseToJson.tasks),
 
+    }
 }
