@@ -24,6 +24,10 @@ function login() {
     }
 }
 
+function logout() {
+    sessionStorage.clear();
+}
+
 function checkEmptyPassword() {
     let password = document.getElementById('login_password');
     if (password.value === '') {

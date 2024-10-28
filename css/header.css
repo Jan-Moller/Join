@@ -12,6 +12,33 @@ header {
 
 }
 
+#header_nav{
+    z-index: 997;
+    width: 150px;
+    height: 158px;
+    border-radius: 20px 0 20px 20px;
+    background-color: #2A3647;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    right: 5px;
+    transform: translateY(-150px);
+    overflow-x: hidden;
+}
+
+.header_nav_active {
+    transform: translateY(50px) !important;
+}
+
+#header_nav a {
+    padding: 8px 16px 8px 16px; 
+    text-decoration: none;
+    color:#CDCDCD;
+    width: 150px;
+}
+
 .header_title {
     padding-left: 348px;
     font-size: 24px;
@@ -29,6 +56,7 @@ header {
     width: 56px;
     border: 3px solid black;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 .user_initials{

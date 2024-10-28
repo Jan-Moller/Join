@@ -11,3 +11,14 @@ async function includeHTML() {
         }
     }
 }
+
+function showNavMenu() {
+    let header_nav_position = document.getElementById('header_nav');
+    if (header_nav_position.classList.contains('header_nav_active')) {
+        header_nav_position.classList.remove('header_nav_active')
+    }
+    else {
+        header_nav_position.classList.add('header_nav_active')
+    }
+
+}

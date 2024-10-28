@@ -3,45 +3,60 @@ const BASE_URL = 'https://join-your-organisation-default-rtdb.europe-west1.fireb
 let users = [];
 let current_user_data = [];
 
-async function addUser() {
+function validateUserInput() {
     document.getElementById('error_message').innerText = '';
-
     if (!checkPrivacyPolicy()) {
         console.log('Fehler: Datenschutzerklärung nicht akzeptiert.');
-        return;
+        return false;
     }
-
     if (!checkPasswordSimilarity()) {
-        return;
+        return false;
     }
-
-    if (checkExistingUser())
-        return;
-    {
-        let name = document.getElementById('sign_up_name').value;
-        let mail = document.getElementById('sign_up_mail').value;
-        let password = document.getElementById('sign_up_password').value;
-        let tasks = {
-            todo: [{ task: "", priority: "", }],
-            in_progress: [{ task: "", priority: "", }],
-            await_feedback: [{ task: "", priority: "", }],
-            done: [{ task: "", priority: "", }],
-        };
-        await postUser("/users", { "name": name, "mail": mail, "sign_up_password": password, "tasks": tasks });
-        await loadUser();
-        let user = users.find(u => u.mail == mail && u.password == password)
-        sessionStorage.setItem('current_user', JSON.stringify({
-            id: user.id,
-            name: user.name,
-            mail: user.mail,
-        }));
-        document.getElementById('succesfull_sign_up_container').classList.add('show_succesfull_sign_up');
-
-        setTimeout(function () {
-            window.location.href = 'summary.html';
-        }, 2000);
+    if (checkExistingUser()) {
+        return false;
     }
+    return true;
 }
+
+
+async function addUser() {
+    if (!validateUserInput()) {
+        return;
+    }
+    let name = document.getElementById('sign_up_name').value;
+    let mail = document.getElementById('sign_up_mail').value;
+    let password = document.getElementById('sign_up_password').value;
+    
+    let tasks = {
+        todo:           [{ task: "", priority: "", due_date: "" }],
+        in_progress:    [{ task: "", priority: "", due_date: "" }],
+        await_feedback: [{ task: "", priority: "", due_date: "" }],
+        done:           [{ task: "", priority: "", due_date: "" }],
+    };
+    await postUser("/users", { 
+        "name": name, 
+        "mail": mail, 
+        "sign_up_password": password, 
+        "tasks": tasks 
+    });
+
+    await loadUser();
+
+    let user = users.find(u => u.mail == mail && u.password == password);
+
+    sessionStorage.setItem('current_user', JSON.stringify({
+        id: user.id,
+        name: user.name,
+        mail: user.mail
+    }));
+
+    document.getElementById('succesfull_sign_up_container').classList.add('show_succesfull_sign_up');
+
+    setTimeout(function () {
+        window.location.href = 'summary.html';
+    }, 2000);
+}
+
 
 async function postUser(path = "", data = {}) {
     let response = await fetch(BASE_URL + path + '.json', {
@@ -79,11 +94,11 @@ function removePlaceholders(tasks) {
             todo: [],
             in_progress: [],
             await_feedback: [],
-            done: []
+            done: [],
         };
     }
     Object.keys(tasks).forEach(key => {
-        tasks[key] = tasks[key] ? tasks[key].filter(task => task.task !== "" && task.priority !== "") : [];
+        tasks[key] = tasks[key] ? tasks[key].filter(task => task.task !== "" && task.priority !== "" && task.due_date !== "") : [];
     });
     return tasks;
 }

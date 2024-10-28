@@ -11,7 +11,32 @@ nav {
     justify-content: space-between;
     font-size: 16px;
     font-weight: 400;
+    overflow: hidden;
 
+}
+
+a {
+    width: 100%;
+}
+
+a .nav_link_position {
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.navigation_link_container a:hover {
+    background-color: #091931;
+}
+
+.navigation-legal-container a:hover {
+    background-color: #091931;
+}
+
+#header_nav a:hover{
+    background-color: #091931;
 }
 
 .join_logo_nav {
@@ -21,7 +46,6 @@ nav {
 }
 
 .navigation_link_container {
-    padding-left: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -46,18 +70,18 @@ nav {
 }
 
 .navigation-legal-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     margin-bottom: 64px; 
-    margin-left: 60px;
     height: 317px;
     gap: 8px; 
 }
 
 .navigation-legal-container a {
+    padding-left: 60px;
     text-decoration: none;
     color:#A8A8A8;
-    ;
 }

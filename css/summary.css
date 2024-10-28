@@ -142,6 +142,7 @@ h1 {
 #deadline_date{
     font-size: 21px;
     font-weight: 700;
+    text-align: center;
 }
 
 .deadline_subtitle{
