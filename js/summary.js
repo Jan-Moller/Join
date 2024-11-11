@@ -59,7 +59,7 @@ function getNextDueDate() {
     Object.keys(current_user_data.tasks).forEach(key => {
         current_user_data.tasks[key].forEach(task => {
             if (task.due_date) {
-                const taskDate = new Date(task.due_date * 1000).getTime(); 
+                const taskDate = new Date(task.due_date * 1000).getTime();
                 const now = new Date().getTime();
                 if (taskDate > now && (nextDueDate === null || taskDate < nextDueDate)) {
                     nextDueDate = taskDate;
@@ -73,6 +73,6 @@ function getNextDueDate() {
 function showNextDueDate() {
     let deadline = document.getElementById('deadline_date');
     let nextDueDate = getNextDueDate();
-    
+
     deadline.innerHTML = nextDueDate;
 }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/fonts.css">
 </head>
 
-<body onload="includeHTML(), userIsLogged()">
+<body onload="includeHTML(), userIsLogged(), addTaskInit()">
     <header w3-include-html="templates/header.html"></header>
     <nav w3-include-html="templates/navigation.html"></nav>
 
@@ -23,20 +23,59 @@
             <form>
                 <div>
                     <div>
-                        <h4>Title*</h3>
+                        <h4>Title*</h4>
                         <input type="text" placeholder="Enter a title">
                     </div>
                     <div>
-                        <h4>Description</h3>
+                        <h4>Description</h4>
                         <input type="text" placeholder="Enter a Description">
                     </div>
                     <div>
-                        <h4>Assigned to</h3>
+                        <h4>Assigned to</h4>
                         <input type="text" placeholder="Select contacts to assign">
                     </div>
                 </div>
                 <img src="assets/img/border_addtask.png"></img>
-                <div></div>
+                <div>
+                    <div>
+                        <h4>Due date*</h4>
+                        <input type="date">
+                    </div>
+                    <div>
+                        <h4>Prio</h4>
+                        <div class="addtask_prio_section">
+                            <div class="prio_btns_addtask">
+                                <span>Urgent</span>
+                                <div><img src="assets/img/urgent_prio.png" alt="Icon für ein Urgent Symbol"></div>
+                            </div>
+                            <div class="prio_btns_addtask">
+                                <span>Medium</span>
+                                <div><img src="assets/img/medium_prio.png" alt="Icon für ein Medium Symbol"></div>
+                            </div>
+                            <div class="prio_btns_addtask">
+                                <span>Low</span>
+                                <div><img src="assets/img/low_prio.png" alt="Icon für ein Low Symbol"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Category*</h4>
+                        <div class="dropdown_category">
+                            <button class="dropdown_button_category" id="dropdown_button_category"
+                                onclick="toggleCategoryDropdown(event)">Select task category<img
+                                    id="category_dropdown_img" src="assets/img/open_arrow_drop_down.png"
+                                    alt="Bild eines Öffnungs Symbols"></button>
+                            <div class="dropdown_content_category" id="dropdown_content_category">
+                                <a href="#" onclick="selectCategoryOption('Technical Task')">Technical Task</a>
+                                <a href="#" onclick="selectCategoryOption('User Story')">User Story</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Subtasks</h4>
+                        <div><input class="subtask_input" type="text" placeholder="Add new Subtask"></div>
+                    </div>
+                </div>
             </form>
         </section>
     </div>
@@ -44,6 +83,8 @@
     <script src="js/template.js"></script>
     <script src="js/index.js"></script>
     <script src="js/storage.js"></script>
+    <script src="js/addtask.js"></script>
+    <script src="js/summary.js"></script>
 </body>
 
 </html>
