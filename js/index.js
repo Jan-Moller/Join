@@ -22,11 +22,21 @@ function login() {
     else {
         wrongCredentials();
     }
+
+    logged_status = true; 
 }
 
 function logout() {
     sessionStorage.clear();
 }
+
+function userIsLogged() {
+    if (!sessionStorage.getItem('current_user')) {
+        window.location.href = 'index.html';
+    }
+}
+
+
 
 function checkEmptyPassword() {
     let password = document.getElementById('login_password');

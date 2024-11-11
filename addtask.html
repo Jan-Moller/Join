@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Your Group</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/addtask.css">
+    <link rel="stylesheet" href="css/fonts.css">
+</head>
+
+<body onload="includeHTML(), userIsLogged()">
+    <header w3-include-html="templates/header.html"></header>
+    <nav w3-include-html="templates/navigation.html"></nav>
+
+    <div class="main_content">
+        <section class="headline_container">
+            <h1>Add Task</h1>
+        </section>
+        <section>
+            <form>
+                <div>
+                    <div>
+                        <h4>Title*</h3>
+                        <input type="text" placeholder="Enter a title">
+                    </div>
+                    <div>
+                        <h4>Description</h3>
+                        <input type="text" placeholder="Enter a Description">
+                    </div>
+                    <div>
+                        <h4>Assigned to</h3>
+                        <input type="text" placeholder="Select contacts to assign">
+                    </div>
+                </div>
+                <img src="assets/img/border_addtask.png"></img>
+                <div></div>
+            </form>
+        </section>
+    </div>
+
+    <script src="js/template.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/storage.js"></script>
+</body>
+
+</html>
