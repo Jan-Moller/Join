@@ -1,6 +1,44 @@
+let contacts = [
+    {
+        "initials": "JD",
+        "initials_color": "#FF5733",
+        "name": "John Doe",
+        "id": "0"
+    },
+    {
+        "initials": "AS",
+        "initials_color": "#33FF57",
+        "name": "Alice Smith",
+        "id": "1"
+    },
+    {
+        "initials": "BW",
+        "initials_color": "#3357FF",
+        "name": "Bob Williams",
+        "id": "2"
+    },
+    {
+        "initials": "CM",
+        "initials_color": "#F39C12",
+        "name": "Charlie Miller",
+        "id": "3"
+    },
+    {
+        "initials": "KP",
+        "initials_color": "#8E44AD",
+        "name": "Karen Peterson",
+        "id": "4"
+    }
+];
+
+
+let selected_contacts = [];
+
+
 async function addTaskInit() {
     let current_user = JSON.parse(sessionStorage.getItem('current_user'));
     await loadCurrentUserData(current_user.id);
+    renderUserContacts();
 }
 
 function toggleCategoryDropdown(event) {
@@ -31,5 +69,109 @@ window.onclick = function (event) {
                 openDropdown.style.display = "none";
             }
         }
+    }
+}
+
+function selectPrioty(prio) {
+    let urgent_btn = document.getElementById('urgent');
+    let medium_btn = document.getElementById('medium');
+    let low_btn = document.getElementById('low');
+
+    let priority = document.getElementById(prio);
+
+    if (priority.classList.contains(prio)) {
+
+        priority.classList.remove(prio);
+    } else {
+
+        urgent_btn.classList.remove('urgent');
+        medium_btn.classList.remove('medium');
+        low_btn.classList.remove('low');
+
+        priority.classList.add(prio);
+    }
+}
+
+function toggleContactsDropdown(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    let content = document.getElementById("dropdown_content_contacts");
+    let img = document.getElementById('contacts_dropdown_img');
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        img.src = 'assets/img/open_arrow_drop_down.png';
+    } else {
+        content.style.display = "block";
+        img.src = 'assets/img/closed_arrow_drop_down.png';
+    }
+}
+
+function selectContactsOption(initials, id, color) {
+
+    if (!selected_contacts.find(item => item.id === id)) {
+        addContactToList(initials, id,color);
+    }
+    else { removeContactFromList(initials, id, color) }
+}
+
+function addContactToList(initials, id, color) {
+    selected_contacts.push({ initials: initials, id: id, color: color });
+    let list = document.getElementById('selected_contacts_list');
+    list.innerHTML = '';
+    for (let i = 0; i < selected_contacts.length; i++) {
+        const contact = selected_contacts[i];
+        list.innerHTML += /*html*/ `<div class="addtask_contact_initials_list" style="background-color: ${contact.color}">${contact.initials}</div>`;
+    }
+}
+
+function removeContactFromList(initials, id, color) {
+    let index = selected_contacts.findIndex(item => item.id === id);
+    selected_contacts.splice(index, 1);
+    let list = document.getElementById('selected_contacts_list');
+    list.innerHTML = '';
+    for (let i = 0; i < selected_contacts.length; i++) {
+        const contact = selected_contacts[i];
+        list.innerHTML += /*html*/ `<div class="addtask_contact_initials_list" style="background-color: ${contact.initials_color}">${contact.initials}</div>`;
+    }
+}
+
+window.onclick = function (event) {
+    let dropdown = document.getElementById("dropdown_content_contacts");
+    let button = document.getElementById("dropdown_button_contacts");
+
+    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+        dropdown.style.display = "none";
+        let img = document.getElementById('contacts_dropdown_img');
+        img.src = 'assets/img/open_arrow_drop_down.png';
+    }
+};
+
+function renderUserContacts() {
+    let list = document.getElementById('dropdown_content_contacts');
+    list.innerHTML = "";
+    for (let i = 0; i < contacts.length; i++) {
+        const contact = contacts[i];
+        list.innerHTML += /*html*/ `<div id="addtask_contact_container(${i})" class="addtask_contact_container" onclick="selectContactsOption('${contact.initials}', '${contact.id}', '${contact.initials_color}'), activateContact(${i})"><div id="addtask_initial(${i})" class="addtask_contact_initials">${contact.initials}</div> <div class="addtask_contact_name">${contact.name}</div><img id="addtask_contact_checkbox(${i})" class="addtask_checkbox" src="assets/img/checkbox.png"></div> `
+        setInitialsBackgroundColor(contact.initials_color, i)
+    }
+}
+
+function setInitialsBackgroundColor(color, id){
+    let initials = document.getElementById(`addtask_initial(${id})`);
+    initials.style.backgroundColor = color;
+}
+
+function activateContact(i) {
+    let contact = document.getElementById(`addtask_contact_container(${i})`);
+    let img = document.getElementById(`addtask_contact_checkbox(${i})`)
+
+    if (contact.classList.contains('active_contact')) {
+        contact.classList.remove('active_contact');
+        img.src = 'assets/img/checkbox.png';
+    }
+    else {
+        contact.classList.add('active_contact');
+        img.src = 'assets/img/checkbox_white.png';
     }
 }

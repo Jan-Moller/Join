@@ -22,43 +22,53 @@
         <section>
             <form>
                 <div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Title*</h4>
-                        <input type="text" placeholder="Enter a title">
+                        <input type="text" placeholder="Enter a title" class="addtask_title">
+                        <div class="error_message_addtask"></div>
                     </div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Description</h4>
-                        <input type="text" placeholder="Enter a Description">
+                        <textarea placeholder="Enter a Description" class="addtask_description"></textarea>
                     </div>
-                    <div>
-                        <h4>Assigned to</h4>
-                        <input type="text" placeholder="Select contacts to assign">
+                    <div class="addtask_input_container">
+                        <h4>Assigned to*</h4>
+                        <div class="dropdown_contacts">
+                            <button class="dropdown_button_contacts" id="dropdown_button_contacts"
+                                onclick="toggleContactsDropdown(event)">Select contacts to assign<img
+                                    id="contacts_dropdown_img" src="assets/img/open_arrow_drop_down.png"
+                                    alt="Bild eines Öffnungs Symbols"></button>
+                            <div class="dropdown_content_contacts" id="dropdown_content_contacts"></div>
+                            <div class="selected_contacts_list" id="selected_contacts_list"></div>
+                        </div>
                     </div>
                 </div>
                 <img src="assets/img/border_addtask.png"></img>
                 <div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Due date*</h4>
-                        <input type="date">
+                        <input type="date" class="input_date">
+                        <div class="error_message_addtask"></div>
+
                     </div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Prio</h4>
                         <div class="addtask_prio_section">
-                            <div class="prio_btns_addtask">
+                            <div class="prio_btns_addtask" id="urgent" onclick="selectPrioty('urgent')">
                                 <span>Urgent</span>
                                 <div><img src="assets/img/urgent_prio.png" alt="Icon für ein Urgent Symbol"></div>
                             </div>
-                            <div class="prio_btns_addtask">
+                            <div class="prio_btns_addtask" id="medium" onclick="selectPrioty('medium')">
                                 <span>Medium</span>
                                 <div><img src="assets/img/medium_prio.png" alt="Icon für ein Medium Symbol"></div>
                             </div>
-                            <div class="prio_btns_addtask">
+                            <div class="prio_btns_addtask" id="low" onclick="selectPrioty('low')">
                                 <span>Low</span>
                                 <div><img src="assets/img/low_prio.png" alt="Icon für ein Low Symbol"></div>
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Category*</h4>
                         <div class="dropdown_category">
                             <button class="dropdown_button_category" id="dropdown_button_category"
@@ -71,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="addtask_input_container">
                         <h4>Subtasks</h4>
                         <div><input class="subtask_input" type="text" placeholder="Add new Subtask"></div>
                     </div>
