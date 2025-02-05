@@ -23,7 +23,7 @@
             <form>
                 <div>
                     <div class="addtask_input_container">
-                        <h4>Title*</h4>
+                        <h4 class="required_headline">Title<div class="required_star">*</div></h4>
                         <input type="text" placeholder="Enter a title" class="addtask_title">
                         <div class="error_message_addtask"></div>
                     </div>
@@ -32,7 +32,7 @@
                         <textarea placeholder="Enter a Description" class="addtask_description"></textarea>
                     </div>
                     <div class="addtask_input_container">
-                        <h4>Assigned to*</h4>
+                        <h4 class="required_headline">Assigned to<div class="required_star">*</div></h4>
                         <div class="dropdown_contacts">
                             <button class="dropdown_button_contacts" id="dropdown_button_contacts"
                                 onclick="toggleContactsDropdown(event)">Select contacts to assign<img
@@ -46,7 +46,7 @@
                 <img src="assets/img/border_addtask.png"></img>
                 <div>
                     <div class="addtask_input_container">
-                        <h4>Due date*</h4>
+                        <h4 class="required_headline">Due date<div class="required_star">*</div></h4>
                         <input type="date" class="input_date">
                         <div class="error_message_addtask"></div>
 
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="addtask_input_container">
-                        <h4>Category*</h4>
+                        <h4 class="required_headline">Category<div class="required_star">*</div></h4>
                         <div class="dropdown_category">
                             <button class="dropdown_button_category" id="dropdown_button_category"
                                 onclick="toggleCategoryDropdown(event)">Select task category<img
@@ -83,7 +83,16 @@
                     </div>
                     <div class="addtask_input_container">
                         <h4>Subtasks</h4>
-                        <div><input class="subtask_input" type="text" placeholder="Add new Subtask"></div>
+                        <div class="subtask_input_container">
+                            <input id="added_subtask" class="subtask_input" type="text" placeholder="Add new Subtask">
+                            <img class="add_subtask_btn" src="assets/img/add_subtask.png" alt="Bild eines Pluses">
+                            <div class="subtask_active_input_img"><img src="assets/img/clear_btn.png" alt=""><img src="assets/img/seperator.png" alt=""><img onclick="addSubtask()" src="assets/img/check_black.png" alt=""></div>
+                        </div>
+                        <div class="subtasks" id="subtask_list"></div>
+                    </div>
+                    <div class="addtask_btn_section">
+                        <div class="clear_btn"><span>Clear</span><img src="assets/img/clear_btn.png" alt="Clear Button"></div>
+                        <div class="create_btn"><span>Create Task</span><img src="assets/img/create_btn.png" alt="Create Button"></div>
                     </div>
                 </div>
             </form>

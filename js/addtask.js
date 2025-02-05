@@ -33,6 +33,7 @@ let contacts = [
 
 
 let selected_contacts = [];
+let subtasks = [];
 
 
 async function addTaskInit() {
@@ -110,7 +111,7 @@ function toggleContactsDropdown(event) {
 function selectContactsOption(initials, id, color) {
 
     if (!selected_contacts.find(item => item.id === id)) {
-        addContactToList(initials, id,color);
+        addContactToList(initials, id, color);
     }
     else { removeContactFromList(initials, id, color) }
 }
@@ -157,7 +158,7 @@ function renderUserContacts() {
     }
 }
 
-function setInitialsBackgroundColor(color, id){
+function setInitialsBackgroundColor(color, id) {
     let initials = document.getElementById(`addtask_initial(${id})`);
     initials.style.backgroundColor = color;
 }
@@ -175,3 +176,54 @@ function activateContact(i) {
         img.src = 'assets/img/checkbox_white.png';
     }
 }
+
+document.querySelector('.subtask_input').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        addSubtask();
+    }
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.target.classList.contains('subtask_list_input') && event.key === 'Enter') {
+        event.preventDefault();
+    }
+});
+
+function renderSubtasks() {
+    let subtask_list = document.getElementById('subtask_list');
+    subtask_list.innerHTML = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        const subtask = subtasks[i];
+
+        subtask_list.innerHTML += /*html*/ `
+        <div class="subtask_list">
+        <li><input class="subtask_list_input" value="${subtask}"><div class="subtask_list_active_input_img"><img src="assets/img/delete_subtask.png" alt="" onclick="deleteSubtask(${i})"><img class="test" src="assets/img/seperator.png" alt=""><img onclick="addSubtask()" src="assets/img/check_black.png" alt=""></div></li>
+        
+        </div>`
+    }
+}
+
+function addSubtask() {
+    let subtask = document.getElementById('added_subtask');
+    subtasks.push(subtask.value);
+    renderSubtasks() 
+    subtask.value = '';
+}
+
+function deleteSubtask(i) {
+    subtasks.splice(i, 1);
+    renderSubtasks() 
+
+}
+
+const subtaskInput = document.querySelector('.subtask_input');
+const checkIcon = document.querySelector('.subtask_active_input_img img:nth-child(3)'); 
+
+subtaskInput.addEventListener('blur', function(event) {
+    if (event.relatedTarget === checkIcon) {
+        addSubtask();
+    }
+});
+
+checkIcon.setAttribute('tabindex', '0');

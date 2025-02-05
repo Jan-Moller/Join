@@ -114,6 +114,7 @@ form {
     text-decoration: none;
     display: block;
     cursor: pointer;
+    width: 408px;
 }
 
 .dropdown_content_category a:hover {
@@ -166,15 +167,16 @@ form {
     border-radius: 10px;
     border: 1px solid #D1D1D1;
 }
+
 .addtask_input_container {
-    margin-bottom: 24px; 
+    margin-bottom: 24px;
 }
 
 .error_msg_addtask {
     height: 16px;
 }
 
-.addtask_title{
+.addtask_title {
     font-family: 'inter';
     font-size: 20px;
     width: 408px;
@@ -184,7 +186,7 @@ form {
     border: 1px solid #D1D1D1;
 }
 
-.addtask_description{
+.addtask_description {
     font-family: 'inter';
     font-size: 20px;
     width: 408px;
@@ -237,14 +239,14 @@ form {
 
 .dropdown_content_contacts::-webkit-scrollbar-thumb {
     background: #A8A8A8;
-    border-radius: 10px; 
+    border-radius: 10px;
     border: 3px solid transparent;
-    background-clip: padding-box; 
+    background-clip: padding-box;
 }
 
 
 .dropdown_content_contacts::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 .dropdown_content_contacts a {
@@ -263,7 +265,7 @@ form {
     display: flex;
 }
 
-.addtask_contact_container{
+.addtask_contact_container {
     font-family: 'inter';
     font-size: 400;
     display: flex;
@@ -272,11 +274,11 @@ form {
     cursor: pointer;
 }
 
-.addtask_contact_container:hover{
+.addtask_contact_container:hover {
     background-color: #f1f1f1;
 }
 
-.addtask_contact_initials{
+.addtask_contact_initials {
     margin: 9px 16px 9px 16px;
     display: flex;
     justify-content: center;
@@ -288,8 +290,8 @@ form {
     color: white
 }
 
-.addtask_contact_initials_list{
-    margin: 8px 4px 8px 4px; 
+.addtask_contact_initials_list {
+    margin: 8px 4px 8px 4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -300,17 +302,165 @@ form {
     color: white
 }
 
-.addtask_contact_name{
-    flex: 1; 
+.addtask_contact_name {
+    flex: 1;
 }
 
 .addtask_checkbox {
-    margin-right: 20px; 
+    margin-right: 20px;
     height: 16px;
     width: 16px;
 }
 
 .active_contact {
     background-color: #2A3647;
-    color: white; 
+    color: white;
+}
+
+.active_contact:hover {
+    background-color: #2A3647;
+}
+
+.addtask_btn_section {
+    width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.clear_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 56px;
+    gap: 4px;
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    cursor: pointer;
+
+}
+
+.clear_btn span {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.create_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 183px;
+    height: 56px;
+    gap: 4px;
+    border-radius: 10px;
+    background-color: #2A3647;
+    cursor: pointer;
+}
+
+.create_btn span {
+    font-family: 'Inter';
+    font-size: 21px;
+    font-weight: 550;
+    color: white;
+}
+
+.subtasks {
+    height: 140px;
+    width: 440px;
+    max-height: 125px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.required_star {
+    color: #FF8190;
+}
+
+.required_headline {
+    display: flex;
+}
+
+.subtask_input_container{
+    position: relative;
+    width: 440px;
+}
+.add_subtask_btn {
+    position: absolute;
+    right: 10px;
+    top: 20px; 
+}
+
+.subtask_input:focus ~ .add_subtask_btn {
+    display: none;
+}
+
+.subtask_active_input_img {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 15px; 
+    align-items: center;
+    gap: 5px; 
+}
+
+.subtask_input:focus ~ .subtask_active_input_img {
+    display: flex !important;
+}
+
+.subtask_list{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.subtask_list_active_input_img { 
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 15px; 
+    align-items: center;
+    gap: 5px; 
+    z-index: 1; 
+   
+}
+
+.subtask_list_input{
+    background-color: transparent;
+    width: 365px;
+    padding: 4px 16px 4px 16px;
+    height: 32px;
+    border: none; 
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Inter';
+}
+
+.subtask_list_input:focus {
+    background-color: white;
+    outline: none !important; 
+}
+
+.subtask_list_input:focus ~ .subtask_list_active_input_img {
+    display: flex !important;
+}
+
+.subtasks::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+.subtasks::-webkit-scrollbar-thumb {
+    background: #A8A8A8;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+
+.subtasks::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
